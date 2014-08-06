@@ -1,0 +1,163 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic|Montserrat:400,700);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+
+$droid: 'Droid Serif', serif;
+$montserrat: 'Montserrat', sans-serif;
+
+$accent: #f99e35;
+
+html,
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: #333333;
+  color: white;
+  font-family: $droid;
+  line-height: 1.5em;
+}
+
+.container {
+  @include outer-container;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $montserrat;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+a, a:visited {
+  color: $accent;
+  text-decoration: none;
+  &:hover {
+    color: darken($accent, 25%);
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+header,section,footer {
+  @include span-columns(12);
+}
+
+#header-headline, #header-img {
+  @include span-columns(6);
+}
+
+#header-headline {
+  text-align: center;
+  padding: 0 10px;
+  img.logo {
+    margin-top: 2em;
+    width: 60%;
+  }
+  h1 {
+    margin-top: 1em;
+    font-size: 3em;
+    line-height: 1.25em;
+  }
+}
+
+#header-img img {
+  display: block;
+}
+
+section#about {
+  background-color: white;
+  color: #333333;
+  padding: 4em 0;
+  // border-top: 4px solid $accent;
+  // border-bottom: 4px solid $accent;
+}
+
+.about-col {
+  @include span-columns(4);
+  @include omega(3n);
+  @include pad(0 20px);
+  text-align: center;
+  h2 {
+    display: inline-block;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    margin: .5em auto 0 auto;
+    border-bottom: 2px solid $accent;
+    padding-bottom: .5em;
+  }
+}
+
+.social {
+  ul {
+    margin-left: 0;
+    padding: 0;
+    list-style: none;
+    a {
+      display: block;
+      padding-bottom: .5em;
+      font-size: 1.25em;
+      font-family: $montserrat;
+    }
+  }
+}
+
+section#feed {
+  padding: 4em 0;
+  h2 {
+    text-align: center;
+    font-size: 2.75em;
+    line-height: 1.25em;
+  }
+  #instafeed {
+    img {
+      display: block;
+      float: left;
+      width: 25%;
+      height: auto;
+    }
+  }
+}
+
+
+footer {
+  border-top: 4px solid $accent;
+  p.copyright {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $montserrat;
+    font-size: .75em;
+  }
+}
+
+@include media($small) {
+  header,section,footer {
+  @include span-columns(1);
+}
+
+#header-headline, #header-img {
+  @include span-columns(1);
+}
+
+#header-headline {
+  h1 {
+    margin-bottom: 1.5em;
+  }
+}
+
+.about-col {
+  @include span-columns(1);
+}
+section#feed {
+  padding: 4em 0;
+  h2 {
+    text-align: center;
+    font-size: 2.75em;
+    line-height: 1.25em;
+  }
+  #instafeed {
+    img {
+      width: 50%;
+    }
+  }
+}
+}
