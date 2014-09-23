@@ -1,0 +1,8 @@
+# Site settings
+title: Sylvania Avenue Neighbors
+description: "A place-based 501c3 org dedicated to the betterment of Sylvania Avenue through arts & culture programming as well as various community advocacy programs."
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title

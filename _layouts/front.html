@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Sylvania Avenue Neighbors</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta name="description" content="A place-based 501c3 org dedicated to the betterment of Sylvania Avenue through arts & culture programming as well as various community advocacy programs.">
+
+  <link rel="stylesheet" type="text/css" href="/css/app.css">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-55025052-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+<body class='front'>
+<header>
+<div class='container'>
+  <div id='header-headline'>
+    <img src="logo2.svg" class='logo'>
+    <h1 id='main-headline'>Businesses, schools, churches... Sylvania Avenue makes us neighbors.</h1>
+  </div>
+  <div id='header-img'>
+  </div>
+</div>
+</header>
+
+<section id='about'>
+<div class='container'>
+  <div class='about-col'>
+    <h2>Who We Are</h2>
+    <p>A place-based 501c3 org dedicated to the betterment of Sylvania Avenue through arts & culture programming as well as various community advocacy programs.</p>
+  </div>
+
+  <div class='about-col contact'>
+    <h2>Contact</h2>
+    <p>Have an idea? Want to introduce yourself? We'd love to hear from you! <a href="mailto:SylvaniaAvenueNeighbors@gmail.com"> SylvaniaAvenueNeighbors@gmail.com</a></p>
+  </div>
+
+  <div class='about-col social'>
+    <h2>Join Us</h2>
+    <ul>
+      <li><a href='http://instagram.com/sylaveneighbors'><i class="fa fa-instagram"></i> Instagram</a></li>
+      <li><a href='https://www.facebook.com/SANeighbors'><i class="fa fa-facebook"></i> Facebook</a></li>
+      <li><a href='https://twitter.com/SANeighbors'><i class="fa fa-twitter"></i> Twitter</a></li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section id='feed'>
+<div class='container'>
+  <h2>Around the Neighborhood</h2>
+  <div id="instafeed"></div>
+</div>
+</section>
+
+{% include footer.html %}
+
+</body>
+
+<script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js'></script>
+
+<script>
+  jQuery("#main-headline").fitText(1.5);
+  jQuery("#feed h2").fitText({maxFontSize: '60px'});
+</script>
+
+<script src='/js/instafeed.min.js'></script>
+
+<script>
+    var headerfeed = new Instafeed({
+        get: 'user',
+        userId: 1436622700,
+        accessToken: '178181685.92d0c9f.a65cba68dbf446e294d046dba0f06612',
+        limit: 1,
+        resolution: 'standard_resolution',
+        target: 'header-img',
+        sortBy: 'random'
+    });
+    headerfeed.run();
+    var feed = new Instafeed({
+        get: 'user',
+        userId: 1436622700,
+        accessToken: '178181685.92d0c9f.a65cba68dbf446e294d046dba0f06612',
+        resolution: 'standard_resolution',
+    });
+    feed.run();
+</script>
+</html>

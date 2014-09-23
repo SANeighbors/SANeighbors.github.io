@@ -9,8 +9,12 @@ $accent: #f99e35;
 html,
 body {
   -webkit-font-smoothing: antialiased;
-  background-color: #333333;
-  color: white;
+}
+
+body {
+  @include clearfix;
+  background-color: white;
+  color: #333333;
   font-family: $droid;
   line-height: 1.5em;
 }
@@ -38,8 +42,119 @@ img {
   height: auto;
 }
 
+blockquote {
+  font-size: 1.5em;
+  font-style: italic;
+  line-height: 1.25em;
+}
+
+hr {
+  width: 80%;
+  height: 1px;
+  background-color: $accent;
+  border: none;
+  margin: 2em auto;
+}
+
+
+header {
+  background-color: #333333;
+  height: 120px;
+  line-height: 120px;
+  font-family: $montserrat;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  .logo {
+    text-align: left;
+    display: inline-block;
+    vertical-align: middle;
+    height: 100px;
+  }
+  nav {
+    float: right;
+    display: inline-block;
+    color: white;
+    height: 120px;
+    vertical-align: middle;
+    ul {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      display: inline-block;
+      margin: 0 1em;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+      i {
+        font-size: 1.5em;
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+}
+
+.page-wrap {
+  margin: 4em 0;
+}
+
+.board-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    @include span-columns(12);
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+  }
+  .profile {
+    @include span-columns(3 of 12);
+  }
+  .member-bio {
+   @include span-columns(9 of 12);
+   @include omega();
+  }
+}
+
+.blog-title {
+  text-align: center;
+}
+
+.meta {
+  text-align: center;
+  font-style: italic;
+}
+
+.post-wrapper {
+  @include span-columns(8);
+  @include shift(2);
+}
+
+footer {
+  border-top: 4px solid $accent;
+  p.copyright {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $montserrat;
+    font-size: .75em;
+  }
+}
+
+
+
+.front {
+  background-color: #333333;
+  color: white;
+
+
 header,section,footer {
   @include span-columns(12);
+  height: auto;
 }
 
 #header-headline, #header-img {
@@ -52,6 +167,7 @@ header,section,footer {
   img.logo {
     margin-top: 2em;
     width: 60%;
+    height: auto;
   }
   h1 {
     margin-top: 1em;
@@ -117,15 +233,7 @@ section#feed {
 }
 
 
-footer {
-  border-top: 4px solid $accent;
-  p.copyright {
-    text-align: center;
-    text-transform: uppercase;
-    font-family: $montserrat;
-    font-size: .75em;
-  }
-}
+
 
 @include media($small) {
   header,section,footer {
@@ -157,5 +265,6 @@ section#feed {
       width: 50%;
     }
   }
+}
 }
 }
